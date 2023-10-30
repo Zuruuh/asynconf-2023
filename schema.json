@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Config",
+  "type": "object",
+  "required": [
+    "banking_data",
+    "energy_data",
+    "generation_data",
+    "mileage_data",
+    "passenger_bonuses",
+    "vehicle_data"
+  ],
+  "properties": {
+    "banking_data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ScoringData"
+      }
+    },
+    "energy_data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Energy"
+      }
+    },
+    "generation_data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Generation"
+      }
+    },
+    "mileage_data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Mileage"
+      }
+    },
+    "passenger_bonuses": {
+      "$ref": "#/definitions/PassengerBonuses"
+    },
+    "vehicle_data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Vehicle"
+      }
+    }
+  },
+  "definitions": {
+    "Boundary": {
+      "type": "object",
+      "required": [
+        "lower_boundary",
+        "upper_boundary"
+      ],
+      "properties": {
+        "lower_boundary": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0.0
+        },
+        "upper_boundary": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0.0
+        }
+      }
+    },
+    "Energy": {
+      "type": "object",
+      "required": [
+        "ecological_note",
+        "name"
+      ],
+      "properties": {
+        "ecological_note": {
+          "type": "number",
+          "format": "float"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Generation": {
+      "type": "object",
+      "required": [
+        "ecological_note",
+        "lower_boundary",
+        "upper_boundary"
+      ],
+      "properties": {
+        "ecological_note": {
+          "type": "number",
+          "format": "float"
+        },
+        "lower_boundary": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0.0
+        },
+        "upper_boundary": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0.0
+        }
+      }
+    },
+    "Mileage": {
+      "type": "object",
+      "required": [
+        "ecological_note"
+      ],
+      "properties": {
+        "ecological_note": {
+          "type": "number",
+          "format": "float"
+        },
+        "lower_boundary": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint",
+          "minimum": 0.0
+        },
+        "upper_boundary": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint",
+          "minimum": 0.0
+        }
+      }
+    },
+    "PassengerBonuses": {
+      "type": "object"
+    },
+    "ScoringData": {
+      "type": "object",
+      "required": [
+        "loan_rate",
+        "vehicle_score"
+      ],
+      "properties": {
+        "loan_rate": {
+          "type": "number",
+          "format": "float"
+        },
+        "vehicle_score": {
+          "$ref": "#/definitions/Boundary"
+        }
+      }
+    },
+    "Vehicle": {
+      "type": "object",
+      "required": [
+        "average_weight",
+        "ecological_note",
+        "name"
+      ],
+      "properties": {
+        "average_weight": {
+          "$ref": "#/definitions/Boundary"
+        },
+        "ecological_note": {
+          "type": "number",
+          "format": "float"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "$schema": "./schema.json",
+  "vehicle_data": [
+    {
+      "name": "Citadine",
+      "average_weight": {
+        "lower_boundary": 800,
+        "upper_boundary": 1300
+      },
+      "ecological_note": 8
+    },
+    {
+      "name": "Cabriolet",
+      "average_weight": {
+        "lower_boundary": 1300,
+        "upper_boundary": 2000
+      },
+      "ecological_note": 6
+    },
+    {
+      "name": "Berline",
+      "average_weight": {
+        "lower_boundary": 1300,
+        "upper_boundary": 1800
+      },
+      "ecological_note": 6.5
+    },
+    {
+      "name": "SUV / 4x4",
+      "average_weight": {
+        "lower_boundary": 1500,
+        "upper_boundary": 2500
+      },
+      "ecological_note": 4
+    }
+  ],
+  "energy_data": [
+    {
+      "name": "Essence",
+      "ecological_note": 5
+    },
+    {
+      "name": "Electrique",
+      "ecological_note": 9
+    },
+    {
+      "name": "Gaz",
+      "ecological_note": 6
+    },
+    {
+      "name": "Diesel",
+      "ecological_note": 4
+    },
+    {
+      "name": "Hybride",
+      "ecological_note": 7
+    }
+  ],
+  "mileage_data": [
+    {
+      "lower_boundary": 5,
+      "upper_boundary": 10,
+      "ecological_note": 9
+    },
+    {
+      "lower_boundary": 10,
+      "upper_boundary": 15,
+      "ecological_note": 7
+    },
+    {
+      "lower_boundary": 15,
+      "upper_boundary": 20,
+      "ecological_note": 5
+    },
+    {
+      "lower_boundary": 20,
+      "upper_boundary": 25,
+      "ecological_note": 3
+    },
+    {
+      "lower_boundary": 25,
+      "upper_boundary": 30,
+      "ecological_note": 1
+    }
+  ],
+  "generation_data": [
+    {
+      "lower_boundary": 1960,
+      "upper_boundary": 1970,
+      "ecological_note": 1
+    },
+    {
+      "lower_boundary": 1970,
+      "upper_boundary": 1980,
+      "ecological_note": 2
+    },
+    {
+      "lower_boundary": 1980,
+      "upper_boundary": 1990,
+      "ecological_note": 3
+    },
+    {
+      "lower_boundary": 1990,
+      "upper_boundary": 2000,
+      "ecological_note": 4
+    },
+    {
+      "lower_boundary": 2000,
+      "upper_boundary": 2010,
+      "ecological_note": 5
+    },
+    {
+      "lower_boundary": 2010,
+      "upper_boundary": null,
+      "ecological_note": 7
+    }
+  ],
+  "passenger_bonuses": {
+    "1": 0.11,
+    "2": -0.17,
+    "3": -0.29,
+    "4": -0.53
+  },
+  "banking_data": [
+    {
+      "vehicle_score": {
+        "lower_boundary": 0,
+        "upper_boundary": 10
+      },
+      "loan_rate": 3
+    },
+    {
+      "vehicle_score": {
+        "lower_boundary": 11,
+        "upper_boundary": 15
+      },
+      "loan_rate": 2.74
+    },
+    {
+      "vehicle_score": {
+        "lower_boundary": 16,
+        "upper_boundary": 25
+      },
+      "loan_rate": 2.52
+    },
+    {
+      "vehicle_score": {
+        "lower_boundary": 26,
+        "upper_boundary": 33
+      },
+      "loan_rate": 2.1
+    },
+    {
+      "vehicle_score": {
+        "lower_boundary": 34,
+        "upper_boundary": 40
+      },
+      "loan_rate": 1.85
+    }
+  ]
+}

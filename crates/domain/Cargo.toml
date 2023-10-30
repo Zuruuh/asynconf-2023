@@ -1,0 +1,15 @@
+[package]
+name = "domain"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+path = "./bin/generate_json_schema.rs"
+name = "schema"
+description = "Regenerate the json schema for the root types"
+
+[dependencies]
+schemars = "0.8.15"
+serde = "1.0.190"
+serde_json = "1.0.107"
+validator = { version = "0.16.1", features = ["derive"] }
