@@ -3,33 +3,33 @@ use serde::Deserialize;
 
 use crate::boundary::{Boundary, OptionalBoundary};
 
-#[derive(Deserialize, JsonSchema)]
-pub struct Vehicle {
+use super::EcologicalNote;
+
+/// Model classes for configuration (the one defined in `data.json`)
+
+#[derive(Deserialize, Debug, JsonSchema)]
+pub struct VehicleConfig {
     pub name: String,
     pub average_weight: Boundary,
     pub ecological_note: EcologicalNote,
 }
 
-#[derive(Deserialize, JsonSchema)]
-#[serde(transparent)]
-pub struct EcologicalNote(#[validate(range(min = 1, max = 10))] pub f32);
-
-#[derive(Deserialize, JsonSchema)]
-pub struct Energy {
+#[derive(Deserialize, Debug, JsonSchema)]
+pub struct EnergyConfig {
     pub name: String,
     pub ecological_note: EcologicalNote,
 }
 
-#[derive(Deserialize, JsonSchema)]
-pub struct Mileage {
+#[derive(Deserialize, Debug, JsonSchema)]
+pub struct MileageConfig {
     #[serde(flatten)]
     pub boundary: OptionalBoundary,
     pub ecological_note: EcologicalNote,
 }
 
-#[derive(Deserialize, JsonSchema)]
-pub struct Generation {
+#[derive(Deserialize, Debug, JsonSchema)]
+pub struct GenerationConfig {
     #[serde(flatten)]
-    pub boundary: Boundary,
+    pub boundary: OptionalBoundary,
     pub ecological_note: EcologicalNote,
 }

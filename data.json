@@ -40,7 +40,7 @@
       "ecological_note": 5
     },
     {
-      "name": "Electrique",
+      "name": "Électrique",
       "ecological_note": 9
     },
     {
@@ -58,28 +58,28 @@
   ],
   "mileage_data": [
     {
-      "lower_boundary": 5,
-      "upper_boundary": 10,
+      "lower_boundary": 5000,
+      "upper_boundary": 10000,
       "ecological_note": 9
     },
     {
-      "lower_boundary": 10,
-      "upper_boundary": 15,
+      "lower_boundary": 10000,
+      "upper_boundary": 15000,
       "ecological_note": 7
     },
     {
-      "lower_boundary": 15,
-      "upper_boundary": 20,
+      "lower_boundary": 15000,
+      "upper_boundary": 20000,
       "ecological_note": 5
     },
     {
-      "lower_boundary": 20,
-      "upper_boundary": 25,
+      "lower_boundary": 20000,
+      "upper_boundary": 25000,
       "ecological_note": 3
     },
     {
-      "lower_boundary": 25,
-      "upper_boundary": 30,
+      "lower_boundary": 25000,
+      "upper_boundary": 30000,
       "ecological_note": 1
     }
   ],
@@ -115,12 +115,24 @@
       "ecological_note": 7
     }
   ],
-  "passenger_bonuses": {
-    "1": 0.11,
-    "2": -0.17,
-    "3": -0.29,
-    "4": -0.53
-  },
+  "passenger_bonuses": [
+    {
+      "passenger_count": 1,
+      "bonus": 0.11
+    },
+    {
+      "passenger_count": 2,
+      "bonus": -0.17
+    },
+    {
+      "passenger_count": 3,
+      "bonus": -0.29
+    },
+    {
+      "passenger_count": 4,
+      "bonus": -0.53
+    }
+  ],
   "banking_data": [
     {
       "vehicle_score": {
