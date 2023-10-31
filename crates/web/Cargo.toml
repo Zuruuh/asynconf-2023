@@ -1,8 +1,0 @@
-[package]
-name = "web"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-domain = { version = "*", path = "../domain" }
-leptos = { version = "0.5.2", features = ["csr", "nightly"] }
