@@ -6,7 +6,6 @@ edition = "2021"
 [[bin]]
 path = "./bin/generate_json_schema.rs"
 name = "schema"
-description = "Regenerate the json schema for the root types"
 
 [dependencies]
 schemars = "0.8.15"

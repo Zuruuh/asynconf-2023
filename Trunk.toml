@@ -1,0 +1,11 @@
+[build]
+target = "./crates/web/index.html"
+dist = "./dist"
+
+[[hooks]]
+stage = "build"
+command = "bash"
+command_arguments = [
+  "-c",
+  "cargo run --bin schema -q | tee schema.json $TRUNK_STAGING_DIR/schema.json >/dev/null",
+]

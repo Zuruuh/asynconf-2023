@@ -3,7 +3,7 @@ use std::rc::Rc;
 
 pub struct Calculator {
     config: Rc<Config>,
-    score_calculator: ScoreCalculators,
+    score_calculators: ScoreCalculators,
 }
 
 impl Calculator {
@@ -12,12 +12,12 @@ impl Calculator {
 
         Self {
             config: config.clone(),
-            score_calculator: ScoreCalculators::default(config),
+            score_calculators: ScoreCalculators::default(config),
         }
     }
 
     pub fn calculate_rate(&self, vehicle: Vehicle, passenger_count: u8) -> f32 {
-        let score = self.score_calculator.calculate_for_vehicle(&vehicle);
+        let score = self.score_calculators.calculate_for_vehicle(&vehicle);
 
         let loan_rate = self
             .config
@@ -41,7 +41,7 @@ impl Calculator {
 
         let bonus = self.calculate_bonus(passenger_count);
 
-        loan_rate + bonus
+        ((loan_rate + bonus) * 100.0).round() / 100.0
     }
 
     fn calculate_bonus(&self, passenger_count: u8) -> f32 {
@@ -98,7 +98,7 @@ impl ScoreCalculator for EnergyScoreCalculator {
             .iter()
             .find(|data| data.name == vehicle.energy.0)
             .map(|note| note.ecological_note.0)
-            .unwrap()
+            .unwrap_or_default()
     }
 }
 
@@ -113,7 +113,7 @@ impl ScoreCalculator for MileageScoreCalculator {
                     && vehicle.mileage.0 >= data.boundary.lower_boundary.unwrap_or(0)
             })
             .map(|note| note.ecological_note.0)
-            .unwrap()
+            .unwrap_or_default()
     }
 }
 
@@ -128,6 +128,6 @@ impl ScoreCalculator for GenerationScoreCalculator {
                     && vehicle.generation.0 >= data.boundary.lower_boundary.unwrap_or(0)
             })
             .map(|note| note.ecological_note.0)
-            .unwrap()
+            .unwrap_or_default()
     }
 }

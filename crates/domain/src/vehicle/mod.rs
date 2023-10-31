@@ -3,7 +3,7 @@ use serde::Deserialize;
 
 pub mod config;
 
-#[derive(Debug)]
+#[derive(PartialEq, Debug)]
 pub struct Vehicle {
     pub name: String,
     pub energy: Energy,
@@ -22,15 +22,15 @@ impl Vehicle {
     }
 }
 
-#[derive(Debug)]
+#[derive(PartialEq, Debug)]
 pub struct Mileage(pub usize);
 
-#[derive(Debug)]
+#[derive(PartialEq, Debug)]
 pub struct Energy(pub String);
 
-#[derive(Debug)]
+#[derive(PartialEq, Debug)]
 pub struct Generation(pub usize);
 
-#[derive(Deserialize, Debug, JsonSchema)]
+#[derive(Deserialize, PartialEq, Debug, Clone, JsonSchema)]
 #[serde(transparent)]
 pub struct EcologicalNote(pub f32);

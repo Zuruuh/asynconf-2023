@@ -6,7 +6,7 @@ mod boundary;
 pub mod calculator;
 pub mod vehicle;
 
-#[derive(Deserialize, Debug, JsonSchema)]
+#[derive(Deserialize, PartialEq, Debug, Clone, JsonSchema)]
 pub struct Config {
     pub vehicle_data: Vec<vehicle::config::VehicleConfig>,
     pub energy_data: Vec<vehicle::config::EnergyConfig>,
